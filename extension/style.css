@@ -453,6 +453,13 @@ header {
   border-radius: 2px;
 }
 
+.deferred-favicon {
+  width: 14px;
+  height: 14px;
+  vertical-align: -2px;
+  margin-right: 4px;
+}
+
 /* Title text — wraps naturally, no truncation */
 .chip-text {
   flex: 1;
@@ -1224,6 +1231,12 @@ footer { animation: fadeUp 0.4s ease 0.18s both; }
 
 .archive-search::placeholder {
   color: var(--muted);
+}
+
+.archive-no-results {
+  font-size: 12px;
+  color: var(--muted);
+  padding: 8px 0;
 }
 
 /* Archive items are simpler — just title + domain + date */
