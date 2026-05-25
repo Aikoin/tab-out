@@ -492,13 +492,14 @@ function timeAgo(dateStr) {
 }
 
 /**
- * getGreeting() — "Good morning / afternoon / evening"
+ * getGreeting() — sheep-style Chinese greeting
  */
 function getGreeting() {
   const hour = new Date().getHours();
-  if (hour < 12) return 'Good morning';
-  if (hour < 17) return 'Good afternoon';
-  return 'Good evening';
+  if (hour < 11) return '人，早上好。';
+  if (hour < 14) return '人，中午好。';
+  if (hour < 18) return '人，下午好。';
+  return '人，晚上好。';
 }
 
 /**
@@ -819,7 +820,7 @@ function renderDomainCard(group) {
   </span>`;
 
   const dupeBadge = hasDupes
-    ? `<span class="open-tabs-badge" style="color:var(--accent-amber);background:rgba(200,113,58,0.08);">
+    ? `<span class="open-tabs-badge" style="color:var(--accent-amber);background:var(--mint-soft);">
         ${totalExtras} duplicate${totalExtras !== 1 ? 's' : ''}
       </span>`
     : '';

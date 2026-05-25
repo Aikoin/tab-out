@@ -1,91 +1,83 @@
-# Tab Out
+# Tab Out - Aikoin Custom
 
-**Keep tabs on your tabs.**
+这是 Aikoin 基于原版 **Tab Out** 改造的 Chrome 新标签页插件。它会把当前打开的标签页按域名分组展示，并提供一键关闭、重复标签清理、稍后保存等功能。
 
-Tab Out is a Chrome extension that replaces your new tab page with a dashboard of everything you have open. Tabs are grouped by domain, with homepages (Gmail, X, LinkedIn, etc.) pulled into their own group. Close tabs with a satisfying swoosh + confetti.
+## 原作者与原仓库
 
-No server. No account. No external API calls. Just a Chrome extension.
+本项目基于 Zara 的开源项目二次修改：
 
----
+- 原作者：Zara
+- 原仓库：[https://github.com/zarazhangrui/tab-out](https://github.com/zarazhangrui/tab-out)
+- 原项目 License：MIT
 
-## Install with a coding agent
+本仓库是个人改版，不是原项目的官方版本。原始创意、Chrome extension 结构和基础功能来自上面的原仓库；这个版本主要调整了视觉风格、字体、问候语、主题素材和部分动效。
 
-Send your coding agent (Claude Code, Codex, etc.) this repo and say **"install this"**:
+## 这个版本改了什么
 
-```
-https://github.com/zarazhangrui/tab-out
-```
+- 换成薄荷绿小羊涂鸦风视觉。
+- 中文为主的界面字体改为 `Noto Sans SC`。
+- 英文、数字、状态标签使用 `Roboto Mono`，让中英混排更有秩序。
+- 顶部问候改成小羊口吻，例如 `人，晚上好。`
+- 加粗顶部问候，让它在页面里更醒目。
+- 优化卡片入场动画，避免左侧列看起来加载更慢。
+- 增加个人改版的打包文件：`dist/tab-out-extension.zip`。
 
-The agent will walk you through it. Takes about 1 minute.
+## 功能
 
----
+- 按域名分组查看所有打开的标签页。
+- 首页类标签页，例如 Gmail、X、YouTube、GitHub，可以单独归组。
+- 点击标签标题可以直接跳转到对应 Chrome 标签页。
+- 一键关闭某个分组里的所有标签页。
+- 检测重复标签，并支持一键关闭重复项。
+- 将标签保存到稍后列表。
+- 所有数据都保存在本地 `chrome.storage.local`，不需要服务器或账号。
 
-## Features
+## 安装
 
-- **See all your tabs at a glance** on a clean grid, grouped by domain
-- **Homepages group** pulls Gmail inbox, X home, YouTube, LinkedIn, GitHub homepages into one card
-- **Close tabs with style** with swoosh sound + confetti burst
-- **Duplicate detection** flags when you have the same page open twice, with one-click cleanup
-- **Click any tab to jump to it** across windows, no new tab opened
-- **Save for later** bookmark tabs to a checklist before closing them
-- **Localhost grouping** shows port numbers next to each tab so you can tell your vibe coding projects apart
-- **Expandable groups** show the first 8 tabs with a clickable "+N more"
-- **100% local** your data never leaves your machine
-- **Pure Chrome extension** no server, no Node.js, no npm, no setup beyond loading the extension
-
----
-
-## Manual Setup
-
-**1. Clone the repo**
+### 方法一：加载源码目录
 
 ```bash
-git clone https://github.com/zarazhangrui/tab-out.git
+git clone https://github.com/Aikoin/tab-out.git
 ```
 
-**2. Load the Chrome extension**
+然后：
 
-1. Open Chrome and go to `chrome://extensions`
-2. Enable **Developer mode** (top-right toggle)
-3. Click **Load unpacked**
-4. Navigate to the `extension/` folder inside the cloned repo and select it
+1. 打开 Chrome，进入 `chrome://extensions`
+2. 打开右上角 **Developer mode**
+3. 点击 **Load unpacked**
+4. 选择仓库里的 `extension/` 文件夹
+5. 打开新标签页
 
-**3. Open a new tab**
+### 方法二：使用打包文件
 
-You'll see Tab Out.
+仓库里提供了打包好的扩展文件：
 
----
-
-## How it works
-
-```
-You open a new tab
-  -> Tab Out shows your open tabs grouped by domain
-  -> Homepages (Gmail, X, etc.) get their own group at the top
-  -> Click any tab title to jump to it
-  -> Close groups you're done with (swoosh + confetti)
-  -> Save tabs for later before closing them
+```text
+dist/tab-out-extension.zip
 ```
 
-Everything runs inside the Chrome extension. No external server, no API calls, no data sent anywhere. Saved tabs are stored in `chrome.storage.local`.
+解压后，在 `chrome://extensions` 里用 **Load unpacked** 选择解压出来的扩展目录。
 
----
+## 打包
 
-## Tech stack
+如果改完代码后需要重新生成 zip：
 
-| What | How |
-|------|-----|
-| Extension | Chrome Manifest V3 |
-| Storage | chrome.storage.local |
-| Sound | Web Audio API (synthesized, no files) |
-| Animations | CSS transitions + JS confetti particles |
+```bash
+cd extension
+zip -r ../dist/tab-out-extension.zip . -x '*.DS_Store'
+```
 
----
+## 技术栈
+
+| 部分 | 实现 |
+| --- | --- |
+| Chrome extension | Manifest V3 |
+| 数据存储 | `chrome.storage.local` |
+| 声音 | Web Audio API |
+| 动效 | CSS transitions + JS confetti particles |
 
 ## License
 
-MIT
+MIT. 请同时参考原项目的 License 和 attribution：
 
----
-
-Built by [Zara](https://x.com/zarazhangrui)
+[https://github.com/zarazhangrui/tab-out](https://github.com/zarazhangrui/tab-out)
