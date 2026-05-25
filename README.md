@@ -76,6 +76,12 @@ zip -r ../dist/tab-out-extension.zip . -x '*.DS_Store'
 | 声音 | Web Audio API |
 | 动效 | CSS transitions + JS confetti particles |
 
+## Contributors
+
+- Original project: [Zara](https://github.com/zarazhangrui), via [zarazhangrui/tab-out](https://github.com/zarazhangrui/tab-out)
+- Custom version: [Aikoin](https://github.com/Aikoin)
+- AI assistance: OpenAI Codex
+
 ## License
 
 MIT. 请同时参考原项目的 License 和 attribution：
